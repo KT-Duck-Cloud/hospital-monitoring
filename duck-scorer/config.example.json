@@ -1,0 +1,30 @@
+{
+  "prometheus": "http://127.0.0.1:9090",
+  "listen": "172.18.0.1:9200",
+  "interval_sec": 10,
+  "failover_sec": 60,
+  "db_failover_sec": 20,
+  "app_failover_sec": 60,
+  "retry_sec": 60,
+  "stable_sec": 600,
+  "demote_sec": 300,
+  "rtt_limit_ms": 50,
+  "prefer_onprem": true,
+  "send": {
+    "enabled": false,
+    "url": "https://duckcloud-admin.ktci5.kr/api/gateways",
+    "token_file": ""
+  },
+  "active": {"vm1": "t3", "vm2": "t3"},
+  "members": [
+    {"name": "t3", "site": "on-prem",
+     "vm1": {"host": "t3-vm1", "ip": "100.64.0.31"},
+     "vm2": {"host": "t3-vm2", "ip": "100.64.0.32"}},
+    {"name": "t5", "site": "on-prem",
+     "vm1": {"host": "t5-vm1", "ip": "100.64.0.51"},
+     "vm2": {"host": "t5-vm2", "ip": "100.64.0.52"}},
+    {"name": "t8", "site": "aws",
+     "vm1": {"host": "t8-vm1", "ip": "100.64.0.81"},
+     "vm2": {"host": "t8-vm2", "ip": "100.64.0.82"}}
+  ]
+}

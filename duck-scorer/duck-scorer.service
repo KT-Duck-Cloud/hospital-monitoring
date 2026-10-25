@@ -1,0 +1,15 @@
+[Unit]
+Description=Duck Cloud scorer API (점수 계산기 · target 전송 · FastAPI)
+After=network-online.target tailscaled.service docker.service
+Wants=network-online.target
+
+[Service]
+User=duck
+WorkingDirectory=/opt/duck-scorer
+ExecStart=/opt/duck-scorer/venv/bin/python /opt/duck-scorer/api.py /etc/duck-scorer/config.json
+StateDirectory=duck-scorer
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
