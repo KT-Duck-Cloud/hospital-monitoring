@@ -13,7 +13,7 @@ TCP 6443 (K8s API) ───────┘     10초마다 판단
 
 ---
 
-## DR-Control 연동 명세
+## DR-Control 연동 API
 
 ### 1. 보내는 방식
 
